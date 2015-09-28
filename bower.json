@@ -1,0 +1,26 @@
+{
+  "name": "charla-pyladies",
+  "version": "1.0.0",
+  "description": "charla de javascript y jquery para pyladies",
+  "main": "index.html",
+  "keywords": [
+    "pyladies",
+    "javascript",
+    "jquery"
+  ],
+  "authors": [
+    "René Olivo <minet.ws@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "qunit": "~1.19.0"
+  }
+}
