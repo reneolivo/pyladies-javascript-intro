@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>1.5 - Objects - Javascript Intro</title>
+
+    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" />
+  </head>
+  <body>
+    <div id="qunit"></div>
+
+    <script src="../bower_components/qunit/qunit/qunit.js"></script>
+    <script>
+      QUnit.test('Can convert an object into a string', function(assert) {
+          var object = {key: 'abc', value: 123};
+          var string = JSON.stringify(object);
+
+          assert.equal(string, '{"key":"abc","value":123}');
+      });
+
+      QUnit.test('Can convert a string into an object', function(assert) {
+        var string = '{"key":"abc","value":123}';
+        var object = JSON.parse(string);
+
+        assert.deepEqual(object, {key: 'abc', value: 123});
+      });
+
+      QUnit.test('Can create a complex object', function(assert) {
+        var character = {
+          name: 'John',
+          lastName: 'Snow',
+          knows: ['nothing'],
+          age: 17,
+          dog: {
+            name: 'Ghost',
+            age: 1
+          }
+        };
+
+        var string = JSON.stringify(character);
+
+        assert.equal(string, '{"name":"John","lastName":"Snow","knows":["nothing"],"age":17,"dog":{"name":"Ghost","age":1}}');
+      });
+
+      QUnit.test('Can read an object\'s property', function(assert) {
+        var character = {
+          name: 'John',
+          lastName: 'Snow',
+          knows: ['nothing'],
+          age: 17,
+          dog: {
+            name: 'Ghost',
+            age: 1
+          }
+        };
+
+        assert.equal(character.name, 'John', 'Can access a property using .');
+        assert.equal(character['age'], 17, 'Can access a property using []');
+        assert.equal(character.knows[0], 'nothing', 'Can access an array property');
+        assert.equal(character.dog.name, 'Ghost', 'Can access an object inside another object');
+      });
+
+      QUnit.test('Can set an object\'s property', function(assert) {
+        var character = {
+          name: 'John',
+          lastName: 'Snow',
+          age: 17
+        };
+
+        character.family = 'Stark';
+        character['job'] = 'Crow';
+
+        assert.equal(character.family, 'Stark', 'Can set a property using .');
+        assert.equal(character.job, 'Crow', 'Can set a property using []');
+      });
+
+      QUnit.test('Can loop through an object\'s key-value pairs', function(assert) {
+        var object = {
+          name: 'John',
+          lastName: 'Snow',
+          age: 17
+        };
+        var string = '';
+
+        for(var key in object) {
+          string += key + ' => ' + object[key] + ', ';
+        }
+
+        assert.equal(string, 'name => John, lastName => Snow, age => 17, ');
+      });
+    </script>
+  </body>
+</html>

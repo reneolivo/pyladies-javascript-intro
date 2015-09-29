@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>1.4 - Loops - Javascript Intro</title>
+
+    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" />
+  </head>
+  <body>
+    <div id="qunit"></div>
+
+    <script src="../bower_components/qunit/qunit/qunit.js"></script>
+    <script>
+      QUnit.test('Can use a while loop', function(assert) {
+        var myArray = [1,2,3,4,5];
+        var testString = '';
+        var value = '';
+
+        while(value = myArray.pop()) {
+          testString += value + ',';
+        }
+
+        assert.equal(testString, '5,4,3,2,1,', 'Creates the test string');
+        assert.deepEqual(myArray, [], 'Empties the original array');
+      });
+
+      QUnit.test('Can use a for loop', function(assert) {
+        var testString = '';
+
+        for(var i = 1; i <= 5; i++) {
+          testString += i + ',';
+        }
+
+        assert.equal(testString, '1,2,3,4,5,');
+      });
+
+      QUnit.test('Can use a for in loop', function(assert) {
+        var myArray = [1,2,3,4,5];
+        var testString = '';
+
+        for(var i in myArray) {
+          testString += myArray[i] + ',';
+        }
+
+        assert.equal(testString, '1,2,3,4,5,', 'Creates the test string');
+        assert.deepEqual(myArray, [1,2,3,4,5], 'Doesn\'t empty the original array');
+      });
+    </script>
+  </body>
+</html>

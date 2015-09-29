@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>1.2 - Functions - Javascript Intro</title>
+
+    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" />
+  </head>
+  <body>
+    <div id="qunit"></div>
+
+    <script src="../bower_components/qunit/qunit/qunit.js"></script>
+    <script>
+      QUnit.test('Can use Javascript\'s provided functions', function(assert) {
+        var int = parseInt("33");
+        var float = parseFloat("3.1416");
+        var round = Math.round(3.14);
+        var floor = Math.floor(3.8);
+        var ceil = Math.ceil(3.2);
+        var pow = Math.pow(3, 2);
+        var random = Math.random();
+
+        assert.equal(int, 33, 'Can parse an integer number');
+        assert.equal(float, 3.1416, 'Can parse a float number');
+        assert.equal(round, 3, 'Can round a number to the nearest value');
+        assert.equal(floor, 3, 'Can round a number to the lowest value');
+        assert.equal(ceil, 4, 'Can round a number to the highest value');
+        assert.equal(pow, 9, 'Can raise a number to the power of another');
+        assert.ok(random >= 0 && random <= 1, 'Can generate a random number between 0 and 1');
+      });
+
+      QUnit.test('Can declare functions', function(assert) {
+        function addTwoNumbers(a, b) {
+          return a + b;
+        }
+
+        var value = addTwoNumbers(3, 5);
+
+        assert.equal(value, 8);
+      });
+
+      QUnit.test('Can use lambda functions', function(assert) {
+        var subTwoNumbers = function(a, b) {
+          return a - b;
+        }
+
+        var multipledValue = (function(a, b) {
+          return a * b;
+        })(3, 4);
+
+        function operator(a, b, func) {
+          return func(a, b);
+        }
+
+        var value1 = operator(5, 3, subTwoNumbers);
+        var value2 = operator(3, 5, function(a, b) {
+          return a * b;
+        });
+
+        assert.equal(subTwoNumbers(5, 3), 2, 'Can declare a function inside a variable');
+        assert.equal(multipledValue, 12, 'Can execute a function inmediatly');
+        assert.equal(value1, 2, 'Can pass a function as a parameter');
+        assert.equal(value2, 15, 'Can declare a function inside a function call');
+      });
+    </script>
+  </body>
+</html>

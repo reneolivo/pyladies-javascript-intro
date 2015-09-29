@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>1.1 - Variables and Expressions - Javascript Intro</title>
+
+    <link rel="stylesheet" href="../bower_components/qunit/qunit/qunit.css" />
+  </head>
+  <body>
+    <div id="qunit"></div>
+
+    <script src="../bower_components/qunit/qunit/qunit.js"></script>
+    <script>
+      QUnit.test('Can set a variable as a number', function(assert) {
+        var myVar = 32;
+
+        assert.equal(myVar, 32);
+      });
+
+      QUnit.test('Can set a variable as a string', function(assert) {
+        var myVar = 'a string';
+        var otherVar = "another string";
+        var quotes = 'a "quote"';
+        var escape = 'someone\'s string';
+
+        assert.equal(myVar, 'a string', 'Can declare a string');
+        assert.equal(otherVar, 'another string', 'Can use double quotes');
+        assert.equal(quotes, 'a "quote"', 'Can use double quotes inside single quotes');
+        assert.equal(escape, "someone's string", 'can escape strings using \\');
+      });
+
+      QUnit.test('Can set a variable as an array', function(assert) {
+        var myVar = [1,2,3,4,5];
+
+        assert.deepEqual(myVar, [1,2,3,4,5]);
+      });
+
+      QUnit.test('Can set a variable as an object', function(assert) {
+        var myVar = {key: 'abc', value: 123};
+
+        assert.deepEqual(myVar, {key: 'abc', value: 123});
+      });
+
+      QUnit.test('Can use expressions', function(assert) {
+        assert.equal(1 + 1, 2, 'Can add numbers');
+        assert.equal(3 * 5, 15, 'Can multiply numbers');
+        assert.equal(5 - 3, 2, 'Can substract numbers');
+        assert.equal(15 / 3, 5, 'Can divide numbers');
+        assert.equal(9 % 2, 1, 'Can use modulus operator');
+        assert.equal('one' + 'two' + 'three', 'onetwothree', 'Can concatenate strings');
+      });
+    </script>
+  </body>
+</html>
