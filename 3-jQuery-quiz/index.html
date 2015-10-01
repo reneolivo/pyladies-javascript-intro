@@ -21,10 +21,10 @@
         <h3>Pellentesque egestas neque sit amet</h3>
 
         <ul class="answers">
-          <li><label class="answer"><input type="radio" name="question-1"><span>Curabitur a felis in nunc</span></label></li>
-          <li><label class="answer"><input type="radio" name="question-1"><span>Phasellus viverra nulla ut metus</span></label></li>
+          <li ><label class="answer"><input type="radio" name="question-1"><span>Curabitur a felis in nunc</span></label></li>
+          <li class="wrong"><label class="answer"><input type="radio" name="question-1"><span>Phasellus viverra nulla ut metus</span></label></li>
           <li><label class="answer"><input type="radio" name="question-1"><span>Fusce ac felis sit amet</span></label></li>
-          <li><label class="answer"><input type="radio" name="question-1"><span>Nam ipsum risus rutrum vitae</span></label></li>
+          <li class="correct"><label class="answer"><input type="radio" name="question-1"><span>Nam ipsum risus rutrum vitae</span></label></li>
         </ul>
       </article>
 
@@ -81,6 +81,11 @@
       <button>Submit Quiz</button>
     </footer>
   </form>
+
+  <section id="result">
+    <h2>Results</h2>
+    <p>You have answered 3 questions correctly out of 5</p>
+  </section>
 
   <script src="../bower_components/jquery/dist/jquery.js"></script>
   <script src="./assets/js/questions.js"></script>

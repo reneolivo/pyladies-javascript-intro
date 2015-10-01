@@ -56,8 +56,30 @@ header h2 {
 #questions .question ul.answers li label {
   display: block;
   cursor: pointer;
-  margin: 1em 0;
+  margin: 0.4em 0;
+  padding: 0.8em;
+  line-height: 2em;
+  border: 1px solid #e8ddd0;
+  background: #f2e6d8;
 }
+
+#questions .question ul.answers li.wrong label { background: #cc5831; }
+#questions .question ul.answers li.correct label { background: #7E8F7C; }
+#questions .question ul.answers li label:hover { background: #f4e791; }
+
+#questions .question ul.answers li label:before {
+  display: inline-block;
+  margin-right: 1.5em;
+  width: 32px;
+  height: 32px;
+  content: ' . ';
+  background: url('../images/square-outline-32.png') left top no-repeat;
+}
+
+#questions .question ul.answers li.correct label:before { background-image: url('../images/checked-checkbox-32.png'); }
+#questions .question ul.answers li.wrong label:before { background-image: url('../images/x-mark-5-32.png'); }
+
+#questions .question ul.answers li label input { display: none; }
 
 footer#submit {
   text-align: right;
@@ -69,4 +91,9 @@ footer#submit button {
   color: #FDF3E7;
   background: #7E8F7C;
   border: none;
+}
+
+section#result {
+  margin: 100px auto 0 auto;
+  width: 720px;
 }
